@@ -11,10 +11,15 @@ class BasePage(object):
         self.base_url = base_url
         self.browser = browser
         self.timeout = 30
+        self.type_text = lambda loc, text: self.wait_for_element(loc).send_keys(text)
+        self.click_element = lambda loc: self.wait_for_element(loc).click()
 
     def find_element(self, *loc):
         return self.browser.find_element(*loc)
-
+    
+    def wait_for_element(self, loc, timeout=10):
+        return WebDriverWait(self.browser, timeout).until(lambda browser: browser.find_element(*loc))
+    
     def visit(self,url):
         self.browser.get(url)
 

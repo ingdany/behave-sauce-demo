@@ -18,6 +18,7 @@ def step_impl(context, user, pwd):
 def step_impl(context):
     page = LoginPage(context)
     page.click_login()
+    
 @then(u'User should be able to view "{title}" page')
 def step_impl(context, title):
     page = ProductPage(context)

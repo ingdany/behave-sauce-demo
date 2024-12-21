@@ -3,7 +3,7 @@ import os
 import shutil
 import time
 import logging
-from pages.page_factory import on
+from pages.utils.page_factory import on
 
 
 
